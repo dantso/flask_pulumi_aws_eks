@@ -16,7 +16,7 @@ This repository will create 2 simple flask applications. One will allow you to e
 
 ### Step 1 
 
-Navigate to the root directory (assignment)
+Navigate to the root directory containing docker-compose.yaml file
 
 ### Step 2 
 Run docker compose
@@ -49,4 +49,4 @@ Run pulumi up and create resources
 Use url1 and url2 from output to navigate to flask applications
 
 ## Notes
-Consul was not included in this project as now. In the future consul will be implemented as well.
+Consul was not included in this project as now. In the future consul will be implemented as well. Comments will be added in a future update as well.
