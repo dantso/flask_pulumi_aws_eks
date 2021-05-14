@@ -1,0 +1,44 @@
+  
+version: '3'
+
+services:
+
+  # consul:
+  #   image:  gliderlabs/consul-server:latest
+  #   command: "-advertise=localhost -server -bootstrap"
+  #   container_name: consul
+  #   ports:
+  #   - 8500:8500
+  #   - 8400:8400
+  #   - 8600:8600/udp
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - 6379:6379
+    restart: always
+
+  app1:
+    container_name: num
+    build: ./Node1
+    volumes:
+      - ./Node1:/usr/src/app
+    ports:
+      - 5000:5000
+    links:
+      - redis
+    depends_on:
+      - redis
+
+  app2:
+    container_name: average
+    build: ./Node2
+    volumes:
+      - ./Node2:/usr/src/app
+    ports:
+      - 5001:5001
+    links:
+      - redis
+    depends_on:
+      - redis
